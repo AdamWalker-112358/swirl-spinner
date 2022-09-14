@@ -4,6 +4,20 @@
 @import "constants";
 @import "./spinners/swirl";
 
+@keyframes swirl {
+  0% {
+    transform: rotate(0deg) scale(100%);
+  }
+
+  50% {
+    transform: rotate(45deg) scale(130%);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(100%);
+  }
+}
+
 body {
   @include flex-container(center, center, column);
 
@@ -48,8 +62,36 @@ body {
     .spinner {
       width: 33.333%;
       height: 33.333%;
-      border: darken($wrapper-bg-color, 10%) dashed 1px;
+      border: darken($wrapper-bg-color, 10%) dashed 5px;
+      border-radius: 50%;
       @include flex-container();
     }
+
+    .swirl {
+      position: relative;
+
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: calc( 50% - 23px);
+        top: calc(50% - 23px);
+
+        width: 40px;
+        height: 40px;
+
+        border: 3px solid transparent;
+        border-top-color: blue;
+        border-bottom-color: blue;
+        border-radius: 50%;
+
+        
+        animation: 'swirl' 1s infinite linear;
+
+      }
+    }
   }
+
+
+
 }
