@@ -1,0 +1,19 @@
+@import "../constants";
+
+.swirl {
+  width: 45px;
+  height: 45px;
+  background: $swirl-base-color;
+  border-radius: 50%;
+  margin: 20px;
+  position: relative;
+  box-shadow: $spinner-shadow;
+
+  &::after {
+    content: "";
+
+  }
+}
+@keyframes swirl {
+  
+}
